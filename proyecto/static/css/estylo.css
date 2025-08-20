@@ -1,0 +1,542 @@
+/* 🌌 Tema oscuro (oscuro arcade) */
+.tema-oscuro {
+  background: linear-gradient(to bottom right, #0f0c29, #0d024b, #24243e);
+  color: #e1eaf5;
+  font-family: 'Uncial Antiqua', sans-serif;
+  background-attachment: fixed;
+  margin-top: 70px;
+}
+
+/* 🌌 Estilo neón para tema oscuro */
+.tema-oscuro .titulo-neon {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 15px #00ffff;
+  font-family: 'Orbitron', sans-serif;
+  animation: flicker 2s infinite;
+}
+
+
+/* ☀️ Tema claro */
+.tema-claro {
+  background: linear-gradient(to bottom right, #928b8b, #ece8e8);
+  color: #222;
+  font-family: 'Uncial Antiqua', sans-serif;
+  background-attachment: fixed;
+  margin-top: 70px;
+}
+
+/* 🌞 Estilo suave para tema claro */
+.tema-claro .titulo-neon {
+  color: #3e0ace;
+  text-shadow: 0 0 5px #b4d0e7, 0 0 15px #c5ccf3;
+  font-family: 'Orbitron', sans-serif;
+  animation: flicker 2s infinite;
+}
+
+
+
+/* 🎯 Ajustes para enlaces según tema */
+.tema-retro a { color: #3a06c7; }
+.tema-claro a { color: #00ccff; }
+
+/* 📦 Contenido centrado con resplandor */
+.contenido-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  text-shadow: 0 0 5px #faffff, 0 0 15px #03e2e2;
+}
+
+/* 🕹️ Footer estilo retro gamer */
+footer {
+  background-color: rgba(20, 20, 20, 0.9);
+  color: #00ff90;
+  padding: 1rem;
+  text-align: center;
+  border-top: 4px double #00ff90;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* 🧱 Navbar neón pixelado */
+.navbar {
+  background-color: rgba(30, 30, 30, 0.95);
+  border-bottom: 3px dashed #3700ff;
+}
+
+/* 🎮 Botones estilo arcade */
+.btn-neon {
+  background: transparent;
+  border: 2px solid #0ae928;
+  color: #00ff22;
+  text-shadow: 0 0 5px #07c26b, 0 0 10px #00c3ff;
+  padding: 0.6rem 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-neon:hover {
+  background: #00ff0d;
+  color: #121213;
+  box-shadow: 0 0 10px #03ad44, 0 0 20px #00ff15;
+}
+
+/* 🌟 Título estilo neón */
+.titulo-neon {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 15px #00ffff;
+  font-family: 'Orbitron', sans-serif;
+  animation: flicker 2s infinite;
+}
+
+/* 🌟 sub titulo Título estilo neón */
+.fs-4 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #030300;
+  text-shadow: 0 0 5px #ebf0f0, 0 0 15px #f3f5f5;
+  font-family: 'VT323', monospace;
+  animation: flicker 2s infinite;
+}
+
+/* ✨ Animación de parpadeo */
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 100% {
+    opacity: 1;
+  }
+  19%, 21%, 24% {
+    opacity: 0.5;
+  }
+}
+
+/* 📱 Íconos de contacto y redes sociales */
+.icono-contacto {
+  color: #f2f8f7;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.icono-contacto:hover {
+  color: #00ff90;
+  text-shadow: 0 0 5px #00ff90, 0 0 15px #00ff90;
+  transform: scale(1.2);
+}
+
+/* 🎬 Animación de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aparecer {
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* 🟢 Bordes neón */
+.border-neon {
+  border: 2px solid #00ff90;
+  box-shadow: 0 0 10px #00ff90;
+}
+
+/* 🧡 Botón naranja personalizado */
+.btn-outline-primary.custom-orange {
+  color: #00ff40;
+  border-color: #09ff00;
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.btn-outline-primary.custom-orange:hover {
+  background-color: #00ff22;
+  color: #0f0f0f;
+  box-shadow: 0 0 10px #00ff0d, 0 0 25px #00ff37;
+}
+
+/* 💚 Botón verde personalizado */
+.btn-custom-verde {
+  color: #00ff90;
+  border-color: #00ff90;
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.btn-custom-verde:hover {
+  background-color: #00ff90;
+  color: #000;
+  box-shadow: 0 0 10px #00ff90, 0 0 25px #00ff90;
+}
+
+/* 👤 Avatar circular con efecto neón */
+.avatar-circular {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  border: 3px solid #00ff90;
+  box-shadow: 0 0 10px #00ff90;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.avatar-circular:hover {
+  box-shadow: 0 0 25px #00ff90, 0 0 50px #00ff90;
+  transform: scale(1.05);
+}
+
+.avatar-circular img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+/* Quien soy */
+.quien_soy {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f3f3e8;
+  text-shadow: 0 0 5px #14025c, 0 0 15px #03017c;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.parrafo_quien_soy {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fcf7f7;
+  font-style: italic;
+  margin-top: 10px;
+  text-shadow: 0 0 5px #14025c, 0 0 15px #03017c;
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+/* 🖼️ Fondo gamer (si lo usás en otra sección) */
+.fondo-gamer {
+  background-image: url('../img/fondo-gamer.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/* 🌞 Íconos en botones */
+button i {
+  margin-right: 6px;
+}
+
+
+/* 🌌 Tema retro */
+.tema-oscuro .texto-tema {
+  color: #25adc5;
+  text-shadow: 0 0 5px #f2f2f5;
+}
+
+/* 🌞 Tema claro */
+.tema-claro .texto-tema {
+  color: #aa0d76;
+  text-shadow: 0 0 5px #eef1f0;
+}
+
+/* estilo carrusel */
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.carrusel-ajustado {
+  margin-bottom: 1rem;
+}
+
+.bienvenida-ajustada {
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}
+
+
+.contenido-centrado {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+textarea.form-control {
+  min-height: 300px;
+  background-color: #0d024b;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 1rem;
+}
+
+.login-card {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px #00ffff;
+  backdrop-filter: blur(10px);
+}
+
+form input, form select {
+  background-color: #0d024b;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 0.5rem;
+}
+
+
+.opiniones-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(13, 2, 75, 0.6);
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00ffff;
+  backdrop-filter: blur(10px);
+  color: #e1eaf5;
+}
+
+.lista-opiniones {
+  list-style: none;
+  padding: 0;
+}
+
+.opinion-item {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ffff;
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.opinion-item a {
+  color: #00ff90;
+  text-decoration: underline;
+}
+
+.opinion-item a:hover {
+  color: #ff6600;
+  text-shadow: 0 0 5px #ff6600;
+}
+
+/* NOSOTROS */
+.nosotros {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  color: #e41a1a;
+}
+
+.nosotros h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #f11717;
+}
+
+.nosotros p {
+  font-size: 1.4rem;
+  line-height: 2;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fff9f9;
+  text-shadow: 0 0 5px #95f7f7;
+}
+
+
+.nosotros {
+  font-family: 'Share Tech Mono', monospace;
+  color: #f2f1f7;
+  text-shadow: 0 0 5px #878a8a;
+}
+.nosotros h1, .nosotros h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffff;
+  text-shadow: 0 0 20px #e8f5f5, 0 0 20px #eaf1f1;
+}
+
+
+.equipo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.miembro {
+  background-color: #615e5e;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(230, 225, 225, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.miembro:hover {
+  transform: translateY(-5px);
+}
+
+.miembro img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.miembro h3 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  color: #0077cc;
+}
+
+.miembro p {
+  font-size: 0.95rem;
+  color: #48dbf5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .equipo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .miembro {
+    width: 80%;
+  }
+}
+
+.icono-contacto i:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+
+.text-success {
+  font-family: 'Share Tech Mono', monospace;
+  color: #0fbd09;
+  text-shadow: 0 0 5px #98e90e;
+}
+
+
+.tema-oscuro .contenido-centrado {
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px #00ffff;
+  border-radius: 10px;
+}
+
+.tema-claro .contenido-centrado {
+  background-color: rgba(72, 73, 73, 0.733);
+  box-shadow: 0 0 15px #3e0ace;
+  border-radius: 10px;
+}
+
+
+/* estilo para registro de usuario*/
+
+/* 🌌 Fondo general */
+body {
+  background-color: #0f0f1a;
+  color: #e0f7fa;
+  font-family: 'Share Tech Mono', monospace;
+  padding-top: 20px; /* Espacio para navbar fija */
+}
+
+/* 🧱 Contenedor principal */
+.container {
+  max-width: 1300px;
+  background-color: rgba(20, 20, 40, 0.95);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #e3e6e6;
+  margin: 0 auto;
+}
+
+/* 🕹️ Título del formulario */
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 15px #00ffff;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+/* 🎮 Campos del formulario */
+form input,
+form select,
+form textarea {
+  background-color: #1a1a2e;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* 🔘 Botón de envío */
+.btn-success {
+  background-color: #00ff90;
+  color: #0f0f1a;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 0 10px #00ff90;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+}
+
+.btn-success:hover {
+  transform: scale(1.05);
+  background-color: #00e67a;
+  box-shadow: 0 0 15px #00ff90;
+}
+
+/* ✨ Animación de entrada */
+.aparecer {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*ayuda contextual o help text en Django*/
+
+.helptext {
+  color: #00ffff;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 5px #00ffff;
+}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- 💬 Mensajes flash -->
+{% if messages %}
+  <div class="container mb-3">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<div class="text-center my-4">
+  <h1 class="titulo-neon">Últimas novedades que tenés que saber</h1>
+  <p class="fs-4 ">Lo que está ocurriendo ahora en el MUNDO GAMER</p>
+</div>
+
+<!-- 🔍 Filtro, ordenamiento y búsqueda -->
+<form method="get" class="row justify-content-center mb-4 filtro-formulario">
+  <div class="col-md-3">
+    <label for="categoria" class="form-label text-light">Filtrar por categoría:</label>
+    <select name="categoria" id="categoria" class="form-select">
+      <option value="">Todas</option>
+      {% for cat in categorias %}
+        <option value="{{ cat.nombre }}" {% if cat.nombre == categoria_actual %}selected{% endif %}>
+          {{ cat.nombre }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-md-5">
+    <label for="orden" class="form-label text-light">Ordenar por:</label>
+    <select name="orden" id="orden" class="form-select">
+      <option value="-publicado" {% if orden_actual == "-publicado" %}selected{% endif %}>Más recientes</option>
+      <option value="publicado" {% if orden_actual == "publicado" %}selected{% endif %}>Más antiguos</option>
+      <option value="titulo" {% if orden_actual == "titulo" %}selected{% endif %}>Título A-Z</option>
+      <option value="-titulo" {% if orden_actual == "-titulo" %}selected{% endif %}>Título Z-A</option>
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <label for="q" class="form-label text-light">Buscar por palabra clave:</label>
+    <input type="text" name="q" id="q" class="form-control" placeholder="Ej: shooter, estrategia..." value="{{ busqueda_actual }}">
+  </div>
+
+  <div class="col-md-2 d-flex align-items-end">
+    <button type="submit" class="btn-neon w-200">Aplicar</button>
+
+  </div>
+</form>
+
+<!-- 📰 Lista de publicaciones -->
+{% for i in posts %}
+  <div class="card bg-dark text-light mb-4">
+    <div class="card-body">
+      <h3 class="card-title">{{ i.titulo }}</h3>
+      {% if i.subtitulo %}
+        <h5 class="card-subtitle mb-2 text-muted">{{ i.subtitulo }}</h5>
+      {% endif %}
+      <p><strong>Categoría:</strong> {{ i.categoria }}</p>
+      <p><strong>Publicado:</strong> {{ i.publicado|date:"d/m/Y H:i" }}</p>
+      <p>{{ i.texto|truncatewords:40 }}</p>
+
+      <a href="{% url 'opiniones:detalle_post' i.id %}" class="btn btn-outline-info btn-sm mt-2">
+        Leer más <i class="bi bi-arrow-right-circle"></i>
+      </a>
+
+
+      {% if i.imagen %}
+        <img src="{{ i.imagen.url }}" alt="Imagen de {{ i.titulo }}" class="img-fluid mt-2">
+      {% else %}
+        <img src="/media/posts/imagen_default.jpeg" alt="Imagen por defecto" class="img-fluid mt-2">
+      {% endif %}
+
+      <div class="mt-3">
+       <a href="{% url 'opiniones:detalle_post' i.id %}" class="btn btn-primary">
+       Ver opiniones
+       </a>
+      </div>
+
+
+      
+    </div>
+  </div>
+{% empty %}
+  <div class="alert alert-warning text-center">
+    <i class="bi bi-exclamation-triangle-fill"></i> No hay publicaciones registradas.
+  </div>
+{% endfor %}
+
+{% endblock %}

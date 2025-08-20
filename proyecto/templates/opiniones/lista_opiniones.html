@@ -1,0 +1,20 @@
+{% block content %}
+  <div class="opiniones-box aparecer">
+    <h1 class="titulo-neon text-center mb-4">🗣️ Todas las Opiniones</h1>
+
+    {% if opiniones %}
+      <ul class="lista-opiniones">
+        {% for opinion in opiniones %}
+          <li class="opinion-item mb-4 p-3 border-neon">
+            <p><strong>🎮 Post:</strong> <a href="{% url 'opiniones:detalle_post' opinion.post.id %}">{{ opinion.post.titulo }}</a></p>
+            <p><strong>👤 Usuario:</strong> {{ opinion.usuario.nombre }}</p>
+            <p><strong>🕒 Fecha:</strong> {{ opinion.fecha|date:"d M Y H:i" }}</p>
+            <p><strong>💬 Opinión:</strong> {{ opinion.texto }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-center">No hay opiniones registradas todavía.</p>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container mt-4">
+    <!-- 📝 Título -->
+    <h2 style="color: #39ff14;">
+      <i class="bi bi-pencil-square" style="color: #ff073a;"></i> Crear nuevo post
+    </h2>
+
+    <!-- 👤 Mensaje según el estado del usuario -->
+    {% if user.is_authenticated %}
+      <p style="color: #ffeb3b;">Hola {{ user.username }}, estás a punto de compartir tu sabiduría gamer 🎮.</p>
+    {% else %}
+      <div class="alert alert-warning">
+        <i class="bi bi-lock-fill"></i> Para publicar un post, primero tenés que 
+        <a href="{% url 'registrar_usuario' %}" class="alert-link">registrarte</a> o 
+        <a href="{% url 'login' %}" class="alert-link">iniciar sesión</a>.
+      </div>
+    {% endif %}
+
+    <!-- 📣 Mensajes del sistema -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- 🖼️ Vista previa de imagen -->
+    <div class="mt-4 text-center">
+      {% if form.instance.imagen %}
+        <img src="{{ form.instance.imagen.url }}" alt="Vista previa del post" class="img-thumbnail" style="max-height: 300px;">
+      {% else %}
+        <img src="{% static 'img/imagen_default.jpeg' %}" alt="Imagen por defecto" class="img-thumbnail" style="max-height: 300px;">
+      {% endif %}
+    </div>
+
+    <!-- 📝 Formulario de creación -->
+    <form method="POST" enctype="multipart/form-data" class="mt-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-success"
+        {% if not user.is_authenticated %}disabled{% endif %}>
+        <i class="bi bi-upload"></i> Publicar
+      </button>
+    </form>
+  </div>
+
+  <!-- 🔄 Vista previa dinámica de imagen -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const input = document.querySelector('input[type="file"]');
+      const preview = document.querySelector('.img-thumbnail');
+
+      if (input) {
+        input.addEventListener('change', function () {
+          const file = this.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              preview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+    });
+  </script>
+{% endblock %}

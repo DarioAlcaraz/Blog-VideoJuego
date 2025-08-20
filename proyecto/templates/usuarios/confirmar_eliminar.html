@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar cuenta{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card border-danger">
+    <div class="card-header bg-danger text-white">
+      <h4>¿Estás seguro de que querés eliminar tu cuenta?</h4>
+    </div>
+    <div class="card-body">
+      <p class="lead">Esta acción no se puede deshacer. Se eliminará tu perfil permanentemente.</p>
+
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, eliminar mi cuenta</button>
+        <a href="{% url 'inicio' %}" class="btn btn-secondary ms-2">Cancelar</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

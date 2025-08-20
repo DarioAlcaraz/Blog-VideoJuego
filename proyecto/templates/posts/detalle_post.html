@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <!-- Detalle del Post -->
+  <div class="card mb-4 mx-auto" style="max-width: 800px;"></div>
+    <div class="card-body">
+      <h2>{{ post.titulo }}</h2>
+      <h5 class="text-muted">{{ post.subtitulo }}</h5>
+      <p class="mt-3">{{ post.texto|linebreaks }}</p>
+      <p class="text-end text-muted">Publicado: {{ post.publicado|date:"d M Y" }}</p>
+    </div>
+  </div>
+
+  <!-- Opiniones -->
+  <h4>Opiniones</h4>
+  {% if opiniones %}
+    <ul class="list-group mb-4">
+      {% for opinion in opiniones %}
+        <li class="list-group-item">
+          <strong>{{ opinion.usuario.username }}</strong> comentó:
+          <p>{{ opinion.texto }}</p>
+          <small class="text-muted">{{ opinion.fecha|date:"d M Y H:i" }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-muted">Aún no hay opiniones. ¡Sé el primero en comentar!</p>
+  {% endif %}
+
+  <!-- Formulario de Opinión -->
+  {% if user.is_authenticated %}
+    <h5>Dejá tu opinión</h5>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-neon">Publicar opinión</button>
+    </form>
+  {% else %}
+    <p class="text-muted">Tenés que <a href="{% url 'usuarios:iniciar_sesion' %}">iniciar sesión</a> para dejar una opinión.</p>
+  {% endif %}
+
+</div>
+{% endblock %}
