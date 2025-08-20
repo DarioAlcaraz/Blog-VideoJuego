@@ -17,6 +17,6 @@ Este es el repositorio del **Proyecto Final** desarrollado como parte del curso 
 - HTML / CSS
 - SQLite (por defecto)
 
-## 🚀 Cómo ejecutar el proyecto
+
 
 
