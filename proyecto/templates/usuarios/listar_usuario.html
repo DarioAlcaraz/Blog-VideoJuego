@@ -13,38 +13,40 @@
     </div>
 
     <!-- Tabla de usuarios -->
-    <table class="table table-bordered table-hover">
-      <thead class="table-light">
-        <tr>
-          <th>ID</th>
-          <th>Nombre de usuario</th>
-          <th>Email</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for usuario in usuarios %}
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover tabla-neon">
+        <thead class="table-light">
           <tr>
-            <td>{{ usuario.id }}</td>
-            <td>{{ usuario.username }}</td>
-            <td>{{ usuario.email }}</td>
-            <td>
-              <!-- Botones de acción (pueden activarse más adelante) -->
-              <a href="{% url 'usuarios:actualizar_usuario' usuario.id %}" class="btn btn-sm btn-outline-primary">
-                <i class="bi bi-pencil-square"></i> Editar
-              </a>
-              <a href="{% url 'usuarios:eliminar_usuario' usuario.id %}" class="btn btn-sm btn-outline-danger ms-1">
-                <i class="bi bi-trash"></i> Eliminar
-              </a>
-            </td>
+            <th>ID</th>
+            <th>Nombre de usuario</th>
+            <th>Email</th>
+            <th>Acciones</th>
           </tr>
-        {% empty %}
-          <tr>
-            <td colspan="4" class="text-center text-muted">No hay usuarios registrados.</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {% for usuario in usuarios %}
+            <tr>
+              <td>{{ usuario.id }}</td>
+              <td>{{ usuario.username }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>
+                <a href="{% url 'usuarios:actualizar_usuario' usuario.id %}" class="btn btn-sm btn-outline-primary">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </a>
+                <a href="{% url 'usuarios:eliminar_usuario' usuario.id %}" class="btn btn-sm btn-outline-danger ms-1">
+                  <i class="bi bi-trash"></i> Eliminar
+                </a>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="4" class="text-center text-muted">No hay usuarios registrados.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
 
     <!-- Botón para volver al inicio -->
     <a href="{% url 'usuarios:inicio' %}" class="btn btn-secondary mt-3">

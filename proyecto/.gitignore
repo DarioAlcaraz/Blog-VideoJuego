@@ -33,5 +33,6 @@ staticfiles/
 # Archivos multimedia subidos por usuarios
 media/
 !media/posts/imagen_default.jpeg
+!media/usuarios/usuario_default.jpg
 
 
